@@ -39,5 +39,18 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(3)
   });
 
+  it('should concatenate multiple number button clicks', () => {
+    wrapper.vm.numberClick(1)
+    expect(wrapper.vm.runningTotal).to.equal(1)
+  });
+
+  it('should chain multiple operation together', () => {
+    wrapper.vm.previousTotal = 15
+    wrapper.vm.numberClick(5)
+    wrapper.vm.previousOperator = "+"
+    wrapper.vm.operatorClick("=")
+    expect(wrapper.vm.previousTotal).to.equal(20)
+    expect(wrapper.vm.newTotal).to.equal(true)
+  });
 
 })
