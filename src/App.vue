@@ -68,7 +68,6 @@ export default {
             break;
         }
       }
-
       // if the 'equals' button was clicked, clear the previous operator, otherwise
       // record what the previous operator was
       if (operator == "=") {
@@ -92,7 +91,11 @@ export default {
       this.runningTotal = parseFloat(this.previousTotal) * parseFloat(number);
     },
     divide(number) {
-      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      if (number == 0) {
+        this.runningTotal = "ERROR"
+      } else {
+        this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number)
+      }
     },
   },
 };
