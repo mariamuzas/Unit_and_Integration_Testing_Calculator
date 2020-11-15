@@ -53,4 +53,18 @@ describe('App.vue', () => {
     expect(wrapper.vm.newTotal).to.equal(true)
   });
 
+  it('should chain multiple operation together', () => {
+    wrapper.vm.previousTotal = 6
+    wrapper.vm.numberClick(3)
+    wrapper.vm.previousOperator = "*"
+    wrapper.vm.operatorClick("=")
+    expect(wrapper.vm.previousTotal).to.equal(18)
+    expect(wrapper.vm.newTotal).to.equal(true)
+  });
+  
+  // it('should clear the running total without affecting calculation', () => {
+  //   wrapper.vm.operatorClick()
+  //   expect(wrapper.vm.runningTotal).to.equal(0)
+  // })
+
 })
